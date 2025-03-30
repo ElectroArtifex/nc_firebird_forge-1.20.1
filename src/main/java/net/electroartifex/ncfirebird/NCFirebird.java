@@ -1,6 +1,10 @@
 package net.electroartifex.ncfirebird;
 
 import com.mojang.logging.LogUtils;
+import net.electroartifex.ncfirebird.item.ModCreativeModTabs;
+import net.electroartifex.ncfirebird.item.ModItems;
+import net.minecraft.world.item.CreativeModeTab;
+import net.minecraft.world.item.CreativeModeTabs;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.BuildCreativeModeTabContentsEvent;
@@ -27,6 +31,10 @@ public class NCFirebird
     {
         IEventBus modEventBus = context.getModEventBus();
 
+        ModCreativeModTabs.register(modEventBus);
+
+        ModItems.register((modEventBus));
+
         modEventBus.addListener(this::commonSetup);
 
         MinecraftForge.EVENT_BUS.register(this);
@@ -43,6 +51,13 @@ public class NCFirebird
     // Add the example block item to the building blocks tab
     private void addCreative(BuildCreativeModeTabContentsEvent event)
     {
+        if(event.getTabKey() == CreativeModeTabs.INGREDIENTS) {
+            event.accept(ModItems.FIREBIRD_FEATHER);
+            event.accept(ModItems.FIREBIRD_TEAR);
+            event.accept(ModItems.SOUL_FIREBIRD_FEATHER);
+            event.accept(ModItems.FIREBIRD_ASHES);
+            event.accept(ModItems.SOUL_FIREBIRD_ASHES);
+        }
 
     }
 
