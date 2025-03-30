@@ -33,8 +33,6 @@ public class NCFirebird
 
         modEventBus.addListener(this::addCreative);
 
-
-        context.registerConfig(ModConfig.Type.COMMON, Config.SPEC);
     }
 
     private void commonSetup(final FMLCommonSetupEvent event)
