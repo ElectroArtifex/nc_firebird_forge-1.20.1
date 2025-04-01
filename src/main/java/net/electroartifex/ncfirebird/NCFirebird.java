@@ -1,6 +1,7 @@
 package net.electroartifex.ncfirebird;
 
 import com.mojang.logging.LogUtils;
+import net.electroartifex.ncfirebird.block.ModBlocks;
 import net.electroartifex.ncfirebird.item.ModCreativeModTabs;
 import net.electroartifex.ncfirebird.item.ModItems;
 import net.minecraft.world.item.CreativeModeTab;
@@ -33,7 +34,8 @@ public class NCFirebird
 
         ModCreativeModTabs.register(modEventBus);
 
-        ModItems.register((modEventBus));
+        ModItems.register(modEventBus);
+        ModBlocks.register(modEventBus);
 
         modEventBus.addListener(this::commonSetup);
 
